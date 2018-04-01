@@ -1,1 +1,1 @@
-target_build_name('theamleaf')
+test('theamleaf')
