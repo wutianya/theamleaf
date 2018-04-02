@@ -1,1 +1,1 @@
-PipeTrigger('theamleaf')
+target_build_name('theamleaf')
