@@ -1,1 +1,1 @@
-test('theamleaf')
+PipeTrigger('theamleaf')
