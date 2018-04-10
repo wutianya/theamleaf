@@ -1,8 +1,9 @@
 // ciTrigger('theamleaf')
 
 node {
-  step {
-    log.info 'Starting'
-    log.warning 'Nothing to do'
-  }
+  echo 1
+//  step {
+//    log.info 'Starting'
+//    log.warning 'Nothing to do'
+//  }
 }
