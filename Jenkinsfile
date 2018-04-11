@@ -1,2 +1,2 @@
-ciTrigger('theamleaf')
+pipelineTrigger('theamleaf')
 
