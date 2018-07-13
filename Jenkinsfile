@@ -1,2 +1,2 @@
-pipelineTrigger('theamleaf')
+pipeTrigger('theamleaf')
 
