@@ -1,2 +1,1 @@
-// pipeTrigger('theamleaf')
-test('theamleaf')
+pipeTrigger('theamleaf')
