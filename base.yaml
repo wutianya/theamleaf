@@ -1,0 +1,141 @@
+jobs:
+  - script: >
+      multibranchPipelineJob('base-NotifierInternalRest') {
+          branchSources {
+            branchSource {
+              source {
+                git {
+                      remote('https://www.mxcd.top/mxc/mxc-notifier.git')
+                      credentialsId('99705c82-3250-42ab-af5d-fa5539553b30')
+                      displayName('mxc-notifier-internal-rest')
+                      id('base-NotifierInternalRest')
+                      traits {
+                        gitBranchDiscovery()
+                        gitTagDiscovery()
+                        localBranchTrait()
+                      }
+                }
+              }
+            }
+          }
+          factory {
+            workflowBranchProjectFactory {
+              scriptPath('mxc-notifier-internal/mxc-notifier-internal-rest/Jenkinsfile')
+            }
+          }
+          orphanedItemStrategy {
+              discardOldItems {
+                  numToKeep(20)
+              }
+          }
+          triggers {
+            periodicFolderTrigger {
+              interval('1440')
+            }
+          }
+      }
+  - script: >
+      multibranchPipelineJob('base-NotifierInternalTask') {
+          branchSources {
+            branchSource {
+              source {
+                git {
+                      remote('https://www.mxcd.top/mxc/mxc-notifier.git')
+                      credentialsId('99705c82-3250-42ab-af5d-fa5539553b30')
+                      displayName('mxc-notifier-internal-task')
+                      id('base-NotifierInternalTask')
+                      traits {
+                        gitBranchDiscovery()
+                        gitTagDiscovery()
+                        localBranchTrait()
+                      }
+                }
+              }
+            }
+          }
+          factory {
+            workflowBranchProjectFactory {
+              scriptPath('mxc-notifier-internal/mxc-notifier-internal-task/Jenkinsfile')
+            }
+          }
+          orphanedItemStrategy {
+              discardOldItems {
+                  numToKeep(20)
+              }
+          }
+          triggers {
+            periodicFolderTrigger {
+              interval('1440')
+            }
+          }
+      }
+  - script: >
+      multibranchPipelineJob('base-NotifierManagementRest') {
+          branchSources {
+            branchSource {
+              source {
+                git {
+                      remote('https://www.mxcd.top/mxc/mxc-notifier.git')
+                      credentialsId('99705c82-3250-42ab-af5d-fa5539553b30')
+                      displayName('mxc-notifier-management-rest')
+                      id('base-NotifierManagementRest')
+                      traits {
+                        gitBranchDiscovery()
+                        gitTagDiscovery()
+                        localBranchTrait()
+                      }
+                }
+              }
+            }
+          }
+          factory {
+            workflowBranchProjectFactory {
+              scriptPath('mxc-notifier-management/mxc-notifier-management-rest/Jenkinsfile')
+            }
+          }
+          orphanedItemStrategy {
+              discardOldItems {
+                  numToKeep(20)
+              }
+          }
+          triggers {
+            periodicFolderTrigger {
+              interval('1440')
+            }
+          }
+      }
+  - script: >
+      multibranchPipelineJob('base-Chat') {
+          branchSources {
+            branchSource {
+              source {
+                git {
+                      remote('https://www.mxcd.top/mxc/mxc-chat.git')
+                      credentialsId('99705c82-3250-42ab-af5d-fa5539553b30')
+                      displayName('mxc-chat')
+                      id('base-Chat')
+                      traits {
+                        gitBranchDiscovery()
+                        gitTagDiscovery()
+                        localBranchTrait()
+                      }
+                }
+              }
+            }
+          }
+          factory {
+            workflowBranchProjectFactory {
+              scriptPath('Jenkinsfile')
+            }
+          }
+          orphanedItemStrategy {
+              discardOldItems {
+                  numToKeep(20)
+              }
+          }
+          triggers {
+            periodicFolderTrigger {
+              interval('1440')
+            }
+          }
+      }
