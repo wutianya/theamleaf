@@ -1,14 +1,14 @@
-jobs:  
+jobs:
   - script: >
-      multibranchPipelineJob('otc-Api') {
+      multibranchPipelineJob('base-NotifierInternalRest') {
           branchSources {
             branchSource {
               source {
                 git {
-                      remote('http://10.11.10.113/gitlab/mxc/otc/mxc-otc.git')
+                      remote('http://10.11.10.113/gitlab/mxc/mxc-notifier.git')
                       credentialsId('99705c82-3250-42ab-af5d-fa5539553b30')
-                      displayName('mxc-otc-api')
-                      id('otc-Api')
+                      displayName('mxc-notifier-internal-rest')
+                      id('base-NotifierInternalRest')
                       traits {
                         gitBranchDiscovery()
                         gitTagDiscovery()
@@ -20,7 +20,7 @@ jobs:
           }
           factory {
             workflowBranchProjectFactory {
-              scriptPath('mxc-otc-api/Jenkinsfile')
+              scriptPath('mxc-notifier-internal/mxc-notifier-internal-rest/Jenkinsfile')
             }
           }
           orphanedItemStrategy {
@@ -35,15 +35,15 @@ jobs:
           }
       }
   - script: >
-      multibranchPipelineJob('otc-InternalApi') {
+      multibranchPipelineJob('base-NotifierInternalTask') {
           branchSources {
             branchSource {
               source {
                 git {
-                      remote('http://10.11.10.113/gitlab/mxc/otc/mxc-otc.git')
+                      remote('http://10.11.10.113/gitlab/mxc/mxc-notifier.git')
                       credentialsId('99705c82-3250-42ab-af5d-fa5539553b30')
-                      displayName('mxc-otc-internal-api')
-                      id('otc-InternalApi')
+                      displayName('mxc-notifier-internal-task')
+                      id('base-NotifierInternalTask')
                       traits {
                         gitBranchDiscovery()
                         gitTagDiscovery()
@@ -55,7 +55,7 @@ jobs:
           }
           factory {
             workflowBranchProjectFactory {
-              scriptPath('mxc-otc-internal-api/mxc-otc-internal-api-rest/Jenkinsfile')
+              scriptPath('mxc-notifier-internal/mxc-notifier-internal-task/Jenkinsfile')
             }
           }
           orphanedItemStrategy {
@@ -70,15 +70,15 @@ jobs:
           }
       }
   - script: >
-      multibranchPipelineJob('otc-Task') {
+      multibranchPipelineJob('base-NotifierManagementRest') {
           branchSources {
             branchSource {
               source {
                 git {
-                      remote('http://10.11.10.113/gitlab/mxc/otc/mxc-otc.git')
+                      remote('http://10.11.10.113/gitlab/mxc/mxc-notifier.git')
                       credentialsId('99705c82-3250-42ab-af5d-fa5539553b30')
-                      displayName('mxc-otc-task')
-                      id('otc-Task')
+                      displayName('mxc-notifier-management-rest')
+                      id('base-NotifierManagementRest')
                       traits {
                         gitBranchDiscovery()
                         gitTagDiscovery()
@@ -90,7 +90,7 @@ jobs:
           }
           factory {
             workflowBranchProjectFactory {
-              scriptPath('mxc-otc-task/Jenkinsfile')
+              scriptPath('mxc-notifier-management/mxc-notifier-management-rest/Jenkinsfile')
             }
           }
           orphanedItemStrategy {
@@ -105,15 +105,15 @@ jobs:
           }
       }
   - script: >
-      multibranchPipelineJob('otc-Manager') {
+      multibranchPipelineJob('base-Chat') {
           branchSources {
             branchSource {
               source {
                 git {
-                      remote('http://10.11.10.113/gitlab/mxc/otc/mxc-otc-manager.git')
+                      remote('http://10.11.10.113/gitlab/mxc/mxc-chat.git')
                       credentialsId('99705c82-3250-42ab-af5d-fa5539553b30')
-                      displayName('mxc-otc-manager')
-                      id('otc-Manager')
+                      displayName('mxc-chat')
+                      id('base-Chat')
                       traits {
                         gitBranchDiscovery()
                         gitTagDiscovery()
@@ -126,41 +126,6 @@ jobs:
           factory {
             workflowBranchProjectFactory {
               scriptPath('Jenkinsfile')
-            }
-          }
-          orphanedItemStrategy {
-              discardOldItems {
-                  numToKeep(20)
-              }
-          }
-          triggers {
-            periodicFolderTrigger {
-              interval('1440')
-            }
-          }
-      }
-  - script: >
-      multibranchPipelineJob('otc-ManagementApi') {
-          branchSources {
-            branchSource {
-              source {
-                git {
-                      remote('http://10.11.10.113/gitlab/mxc/otc/mxc-otc.git')
-                      credentialsId('99705c82-3250-42ab-af5d-fa5539553b30')
-                      displayName('mxc-otc-management-api')
-                      id('otc-ManagementApi')
-                      traits {
-                        gitBranchDiscovery()
-                        gitTagDiscovery()
-                        localBranchTrait()
-                      }
-                }
-              }
-            }
-          }
-          factory {
-            workflowBranchProjectFactory {
-              scriptPath('mxc-otc-management-api/mxc-otc-management-api-rest/Jenkinsfile')
             }
           }
           orphanedItemStrategy {
