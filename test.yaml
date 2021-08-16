@@ -1,0 +1,176 @@
+jobs:  
+  - script: >
+      multibranchPipelineJob('otc-Api') {
+          branchSources {
+            branchSource {
+              source {
+                git {
+                      remote('http://10.11.10.113/gitlab/mxc/otc/mxc-otc.git')
+                      credentialsId('99705c82-3250-42ab-af5d-fa5539553b30')
+                      displayName('mxc-otc-api')
+                      id('otc-Api')
+                      traits {
+                        gitBranchDiscovery()
+                        gitTagDiscovery()
+                        localBranchTrait()
+                      }
+                }
+              }
+            }
+          }
+          factory {
+            workflowBranchProjectFactory {
+              scriptPath('mxc-otc-api/Jenkinsfile')
+            }
+          }
+          orphanedItemStrategy {
+              discardOldItems {
+                  numToKeep(20)
+              }
+          }
+          triggers {
+            periodicFolderTrigger {
+              interval('1440')
+            }
+          }
+      }
+  - script: >
+      multibranchPipelineJob('otc-InternalApi') {
+          branchSources {
+            branchSource {
+              source {
+                git {
+                      remote('http://10.11.10.113/gitlab/mxc/otc/mxc-otc.git')
+                      credentialsId('99705c82-3250-42ab-af5d-fa5539553b30')
+                      displayName('mxc-otc-internal-api')
+                      id('otc-InternalApi')
+                      traits {
+                        gitBranchDiscovery()
+                        gitTagDiscovery()
+                        localBranchTrait()
+                      }
+                }
+              }
+            }
+          }
+          factory {
+            workflowBranchProjectFactory {
+              scriptPath('mxc-otc-internal-api/mxc-otc-internal-api-rest/Jenkinsfile')
+            }
+          }
+          orphanedItemStrategy {
+              discardOldItems {
+                  numToKeep(20)
+              }
+          }
+          triggers {
+            periodicFolderTrigger {
+              interval('1440')
+            }
+          }
+      }
+  - script: >
+      multibranchPipelineJob('otc-Task') {
+          branchSources {
+            branchSource {
+              source {
+                git {
+                      remote('http://10.11.10.113/gitlab/mxc/otc/mxc-otc.git')
+                      credentialsId('99705c82-3250-42ab-af5d-fa5539553b30')
+                      displayName('mxc-otc-task')
+                      id('otc-Task')
+                      traits {
+                        gitBranchDiscovery()
+                        gitTagDiscovery()
+                        localBranchTrait()
+                      }
+                }
+              }
+            }
+          }
+          factory {
+            workflowBranchProjectFactory {
+              scriptPath('mxc-otc-task/Jenkinsfile')
+            }
+          }
+          orphanedItemStrategy {
+              discardOldItems {
+                  numToKeep(20)
+              }
+          }
+          triggers {
+            periodicFolderTrigger {
+              interval('1440')
+            }
+          }
+      }
+  - script: >
+      multibranchPipelineJob('otc-Manager') {
+          branchSources {
+            branchSource {
+              source {
+                git {
+                      remote('http://10.11.10.113/gitlab/mxc/otc/mxc-otc-manager.git')
+                      credentialsId('99705c82-3250-42ab-af5d-fa5539553b30')
+                      displayName('mxc-otc-manager')
+                      id('otc-Manager')
+                      traits {
+                        gitBranchDiscovery()
+                        gitTagDiscovery()
+                        localBranchTrait()
+                      }
+                }
+              }
+            }
+          }
+          factory {
+            workflowBranchProjectFactory {
+              scriptPath('Jenkinsfile')
+            }
+          }
+          orphanedItemStrategy {
+              discardOldItems {
+                  numToKeep(20)
+              }
+          }
+          triggers {
+            periodicFolderTrigger {
+              interval('1440')
+            }
+          }
+      }
+  - script: >
+      multibranchPipelineJob('otc-ManagementApi') {
+          branchSources {
+            branchSource {
+              source {
+                git {
+                      remote('http://10.11.10.113/gitlab/mxc/otc/mxc-otc.git')
+                      credentialsId('99705c82-3250-42ab-af5d-fa5539553b30')
+                      displayName('mxc-otc-management-api')
+                      id('otc-ManagementApi')
+                      traits {
+                        gitBranchDiscovery()
+                        gitTagDiscovery()
+                        localBranchTrait()
+                      }
+                }
+              }
+            }
+          }
+          factory {
+            workflowBranchProjectFactory {
+              scriptPath('mxc-otc-management-api/mxc-otc-management-api-rest/Jenkinsfile')
+            }
+          }
+          orphanedItemStrategy {
+              discardOldItems {
+                  numToKeep(20)
+              }
+          }
+          triggers {
+            periodicFolderTrigger {
+              interval('1440')
+            }
+          }
+      }
